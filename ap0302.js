@@ -15,7 +15,7 @@ function init() {
     x: 30,
     y: 20,
     z: 30,
-    theta: 10,
+    theta: 0.01,
    // theta: (theta + 0.06) % (2 * Math.PI),
     wireframe: false
   };
@@ -151,7 +151,7 @@ car.add(mesh);
     camera.position.z = param.z;
     camera.lookAt(0, 0, 0);
     camera.updateProjectionMatrix();
-   theta = (theta + 0.05) % (2 * Math.PI);
+   theta = (theta + param.theta) % (2 * Math.PI);
     car.position.x = radius * Math.cos(theta);
     car.position.z = radius * Math.sin(theta);
     car.rotation.y = -theta;
@@ -168,7 +168,7 @@ car.add(mesh);
   gui.add(param, "x", -40, 80);
   gui.add(param, "y", -40, 80);
   gui.add(param, "z", -40, 80);
-  gui.add(param, "theta",-0.1,100);
+  gui.add(param, "theta",-0.9,0.9);
   gui.add(param, "wireframe");
 
   // 描画
